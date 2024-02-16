@@ -1,0 +1,154 @@
+#
+
+clear
+logfile="tmp/fairpay.log"
+echo "Welcome to the Fair Pay CLI!"
+echo "If you are unfamiliar with the system please type 'help' in order to pull up the usage guide!"
+echo "Enjoy your drinks and always pay fairly!"
+
+while true; do
+
+    read -p "cli > " command
+    case $command in
+    	"q") break ;;
+        "whoPays") url="http://localhost:8080/pay-service/whoPays"
+	           echo "$url"
+	           response=$(curl -s "$url")
+		   echo "$response"
+	           echo "$response" | python -m json.tool
+	              ;;
+	"changeFavoriteDrink") read -p "Enter parameters (employeeId, productId): " params
+	                       read -ra array <<< "$params"
+			       param1="${array[0]}"
+			       param2="${array[1]}"
+			       url="http://localhost:8080/pay-service/changeFavoriteDrink?employeeId=$param1&productId=$param2"
+			       response=$(curl -s "$url")
+			       echo "$response" | python -m json.tool
+			       ;;
+
+	"addProduct") read -p "Enter productId: " param1
+		      read -p "Enter name: " param2
+		      read -p "Enter drinkPrice: " param3
+		      formatted_input="${param2// /%20}"
+		      url="http://localhost:8080/pay-service/addProduct?productId=$param1&name=$formatted_input&drinkPrice=$param3"
+		      response=$(curl -s "$url")
+		      echo "$response" | python -m json.tool
+		      ;;
+
+	"removeProduct") read -p "Enter ID of product to be removed: " param
+			 url="http://localhost:8080/pay-service/removeProduct?productId=$param"
+			 response=$(curl -s "$url")
+			 echo "$response" | python -m json.tool
+			 ;;
+
+	"addEmployee") read -p "Enter employeeId: " param1
+	               read -p "Enter name: " param2
+		       read -p "Enter favoriteDrinkId: " param3
+		       formatted_input="${param2// /%20}"
+		       echo $formatted_input
+		       url="http://localhost:8080/pay-service/addEmployee?employeeId=$param1&name=$formatted_input&favoriteDrinkId=$param3"
+		       response=$(curl -s "$url")
+		       echo "$response" | python -m json.tool
+		       ;;
+
+        "removeEmployee") read -p "Enter ID of employee to be removed: " param
+	                  url="http://localhost:8080/pay-service/removeEmployee?employeeId=$param"
+			  response=$(curl -s "$url")
+			  echo "$response" | python -m json.tool
+			  ;;
+
+	"getProductInformation") url="http://localhost:8080/pay-service/getProductInformation"
+				    response=$(curl -s "$url")
+				    echo "$response" | python -m json.tool
+	                            ;;
+
+	"getEmployeeInformation") url="http://localhost:8080/pay-service/getEmployeeInformation"
+	                          response=$(curl -s "$url")
+				  echo "$response" | python -m json.tool
+				  ;;
+
+        "changeConfig") read -p "Enter Configuration Type (e, p, ep): " param
+	                url="http://localhost:8080/pay-service/changeConfig?fileType=$param"
+		        response=$(curl -s "$url")
+			echo "$response" | python -m json.tool
+		        ;;
+
+	"getConfig") url="http://localhost:8080/pay-service/getConfig"
+	             response=$(curl -s "$url")
+		     echo "$response" | python -m json.tool
+	             ;;
+
+
+	"help") echo "Fair Pay System Usage"
+                echo ""
+	        echo "Note about configuration:"
+		echo ""
+		echo "     The system will come default loaded with a configuration that has an employee and product list that is full of default values."
+		echo "     Anytime an action is performed such as adding an employee or getting who pays, the configuration will be automatically updated and saved."
+		echo "     Thus the system will always be up to date with the groups current details of employees and products."
+		echo "     If the changeConfig command is used this saved configuration will be replaced with the new chosen configuration."
+		echo "     Given this, please be sure you are done tracking the current teams information before starting again with a new configuration!"
+		echo "     The ep configuration with default employees and products is recommended for users unfamiliar with the system to learn how it functions."
+		echo "     Once familair with the system change the configuration to e (empty) and begin adding products and employees for your own team!"
+		echo ""
+	        echo "Commands:"
+		echo ""
+		echo "                   help : This will bring up this usage message"
+		echo ""
+		echo "                      q : This will exit the program"
+		echo ""
+		echo "            changeConfig : This allows the user to load a different configuration of employees and products, this WILL OVERRIDE AND REPLACE the current configuration."
+		echo "                           Configuration should only be changed if you are okay with losing the current configurations data (i.e. wanting to restart the tracking of payments)"
+		echo "                           User will be prompted to enter a type:"
+		echo "                           e (Sets the configuration to an empty configuration with no products or employees)"
+		echo "                           p (Sets the configuration to a configuration with a product list of default products and an empty emplpyee list)"
+		echo "                           ep (Sets the configuration to a configuration with both an employee and product list with default values"
+		echo "                           Example Usage:"
+		echo "                           Enter Configuration Type: e"
+		ehco ""
+		echo "               getConfig: This will return the current configuration of the system (the employee and product list will be returned in JSON)"
+		echo ""
+		echo "                whoPays : This will return a JSON containing the employee who must pay for all the drinks. No parameters are needed."
+	        echo ""
+		echo "    changeFavoriteDrink : This will change the favorite drink of the indicated employee and"
+		echo "                          return a JSON containing the old favorite drink informaton, new favorite drink information, and the associated employee information."
+		echo "                          User will be prompted to enter an employee ID and a product ID."
+		echo "                          Example Usage:"
+		echo "                          Enter parameters (employee ID, product ID) : 1 4"
+		echo ""
+		echo "             addProduct : This will add a new product to the product list and return a JSON containing the information of the product added and the entire product list including the newly added item."
+		echo "                          Users will be promted to enter a product ID, name, and drink price."
+		echo "                          Example Usage:"
+		echo "                          Enter Product ID: 45"
+		echo "                          Enter Name: Oreo Shake"
+		echo "                          Enter Drink Price: 8.75"
+		echo ""
+		echo "          removeProduct : This will remove the indicated product and return a JSON containing the information of the removed product and the entire product list with the the product removed."
+		echo "                          Users will be prompted to enter a product ID, product ID cannot currently be a favorite of an employee."
+                echo "                          Example Usage:"
+		echo "                          Enter ID of product to be removed: 1"
+		echo ""
+		echo "            addEmployee : This will add a new employee to the employee list and return a JSON containing the information of the employee added and the entire employee list containing the newly added employee."
+		echo "                          Users will be prompted to enter a employee ID, name, and favorite drink ID."
+		echo "                          Example Usage:"
+		echo "                          Enter Employee ID: 37"
+		echo "                          Enter Name: John Smith"
+		echo "                          Enter Favorite Drink ID: 4"
+		echo ""
+		echo "           removePlayer : This will remove the indicated employee and return a JSON containing the information of the removed employee and the entire employee list with the employee removed."
+		echo "                          Users will be prompted to enter an employee ID."
+		echo "                          Enter ID of employee to be removed: 5"
+	        echo ""
+		echo "  getProductInformation : This will return a JSON containing all of the products and their information. No parameters are needed."
+		echo ""
+		echo "getEmplpoyeeInformation : This will return a JSON containing all of the employees and their information. No parameters are needed."
+		;;
+
+	*) echo "Unrecognized command, enter 'help' for usage guide." ;;
+    esac
+    echo ""
+
+done
+
+
+
