@@ -61,7 +61,7 @@ If you would like to avoid using the client, then the commands can be achieved s
   - http://localhost:8080/pay-service/whoPays
   - http://localhost:8080/pay-service/addProduct?productId=45&name=Oreo%20Shake&drinkPrice=8.75
   - http://localhost:8080/pay-service/removeProduct?productId=4
-  - http://localhost:8080/pay-service/addEmployee?employeeId=55&name=Beatrice Nielsen&favoriteDrinkId=3
+  - http://localhost:8080/pay-service/addEmployee?employeeId=55&name=Beatrice%20Nielsen&favoriteDrinkId=3
 
 
 **Assumptions Made**
