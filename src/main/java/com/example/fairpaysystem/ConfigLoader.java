@@ -44,9 +44,9 @@ public class ConfigLoader {
         ObjectMapper objectMapper = new ObjectMapper();
         this.activePaySystemConfig = objectMapper.readValue(paysystempropertyFile.getInputStream(), ActivePaySystemConfig.class);
         this.directoryManager = new DirectoryManager(activePaySystemConfig);
-        if (directoryManager.doesFileExist(activePaySystemConfig.getHome() + "\\" + activePaySystemConfig.getActiveFile())) {
+        if (directoryManager.doesFileExist(directoryManager.getFullPathFileName())) {
 
-            this.baseConfig = objectMapper.readValue((new File(activePaySystemConfig.getHome() + "\\" + activePaySystemConfig.getActiveFile())), BaseConfig.class);
+            this.baseConfig = objectMapper.readValue((new File(directoryManager.getFullPathFileName())), BaseConfig.class);
 
         } else {
 

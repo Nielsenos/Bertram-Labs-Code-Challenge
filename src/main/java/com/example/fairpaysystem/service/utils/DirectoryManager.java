@@ -31,7 +31,6 @@ public class DirectoryManager
         this.fileName = activePaySystemConfig.getActiveFile();
         this.createDirectories(rootFolder);
         this.fullPathFileName = rootFolder + "\\" + fileName;
-        this.createFile(fullPathFileName);
 
     }
 
