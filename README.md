@@ -5,6 +5,10 @@ There is a simple CLI client included, under the cli folder. This is a simple li
 Please place this file where you would like and run it through the command ./cli.
 There is a 'help' command that can be used to display a more thourough usage guide of the system.
 
+**Requirements**
+- Tomcat 10.1
+- Java 21
+
 In order to run this system locally Tomcat 10.1 and Java21 will need to be downloaded. Tomcat should by default run on port 8080, please make sure that this is the case.
 Once Tomcat is installed please download the pay-serivce.war file from the target package. In the file explorer navigate to where Tomcat was downloaded and then 
 go to Tomcat 10.1/webapps and paste the war file there. Make sure that Tomcat is running and a new folder containing the contents of the war package should pop up with the 
@@ -49,7 +53,7 @@ the next times use! However, if a new configuraiton is loaded with changeConfig,
 time and the changing the confiuguration to an empty configuration containing no employees or products, this empty configuration will then be the active configuration. Always be sure that 
 you are okay with losing information when changing the configuration.  
 
-The active configuration will automaticlaly be written to a file named 'activeconfiguration.json' which will be saved by default to 'C:\FairPaySystemConfigs'. There is a file containing the file path to write to that can be found in the resourcese package in the file 'paysystemproperties.json'. The first time run of the system will create this folder and whenever a command is enacted, the updated version of the active configuration will get written to the activeconfiguration.json file (or altered file name).
+The active configuration will automaticlaly be written to a file named 'activeconfiguration.json' which will be saved by default to 'C:\FairPaySystemConfigs'. There is a file containing the file path to write to that can be found in the Tomcat folder, *Apache Software Foundation\Tomcat 10.1\webapps\pay-service\WEB-INF\classes* in the file 'paysystemproperties.json'. The first time run of the system will create this folder and whenever a command is enacted, the updated version of the active configuration will get written to the activeconfiguration.json file (or altered file name).
 
 **Alternative Way to Use Commands**
 
