@@ -1,0 +1,7 @@
+com.example.fairpaysystem
+com.example.fairpaysystem.activepayrecord
+com.example.fairpaysystem.controller
+com.example.fairpaysystem.model
+com.example.fairpaysystem.response
+com.example.fairpaysystem.service
+com.example.fairpaysystem.service.utils
