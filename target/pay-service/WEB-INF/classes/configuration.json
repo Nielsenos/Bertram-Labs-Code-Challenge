@@ -1,0 +1,84 @@
+{
+  "employees" : {
+    "0" : {
+      "id" : "0",
+      "name" : "Oliver Nielsen",
+      "favoriteDrinkId" : "3",
+      "totalPaid" : 0.0
+    },
+    "1" : {
+      "id" : "1",
+      "name" : "Emma Nielsen",
+      "favoriteDrinkId" : "1",
+      "totalPaid" : 0.0
+    },
+    "2" : {
+      "id" : "2",
+      "name" : "Jayla Bode",
+      "favoriteDrinkId" : "2",
+      "totalPaid" : 0.0
+    },
+    "3" : {
+      "id" : "3",
+      "name" : "Jack Rickard",
+      "favoriteDrinkId" : "3",
+      "totalPaid" : 0.0
+    },
+    "4" : {
+      "id" : "4",
+      "name" : "Molly Watkins",
+      "favoriteDrinkId" : "15",
+      "totalPaid" : 0.0
+    },
+    "5" : {
+      "id" : "5",
+      "name" : "Jeorg Maxie",
+      "favoriteDrinkId" : "15",
+      "totalPaid" : 0.0
+    },
+    "6" : {
+      "id" : "6",
+      "name" : "Jacob Williams",
+      "favoriteDrinkId" : "0",
+      "totalPaid" : 0.0
+    },
+    "90" : {
+      "id" : "90",
+      "name" : "Tor Nielsen",
+      "favoriteDrinkId" : "3",
+      "totalPaid" : 0.0
+    }
+  },
+  "products" : {
+    "0" : {
+      "id" : "0",
+      "name" : "Hot Chocolate",
+      "drinkPrice" : 3.0
+    },
+    "1" : {
+      "id" : "1",
+      "name" : "Strawberry Acai Refresher",
+      "drinkPrice" : 5.75
+    },
+    "2" : {
+      "id" : "2",
+      "name" : "Caramel Mocha Latte",
+      "drinkPrice" : 4.25
+    },
+    "3" : {
+      "id" : "3",
+      "name" : "Black Coffee",
+      "drinkPrice" : 2.5
+    },
+    "4" : {
+      "id" : "4",
+      "name" : "Iced Chai",
+      "drinkPrice" : 3.5
+    },
+    "15" : {
+      "id" : "15",
+      "name" : "Mocha Latte",
+      "drinkPrice" : 3.75
+    }
+  }
+}
