@@ -49,8 +49,7 @@ the next times use! However, if a new configuraiton is loaded with changeConfig,
 time and the changing the confiuguration to an empty configuration containing no employees or products, this empty configuration will then be the active configuration. Always be sure that 
 you are okay with losing information when changing the configuration.  
 
-The active configuration will automaticlaly be written to a file named 'activeconfiguration.json' which will be saved to 'C:\FairPaySystemConfigs'. The first time run of the system
-will create this folder and whenever a command is enacted, the updated version of the active configuration will get written to the activeconfiguration.json file.
+The active configuration will automaticlaly be written to a file named 'activeconfiguration.json' which will be saved by default to 'C:\FairPaySystemConfigs'. There is a file containing the file path to write to that can be found in the resourcese package in the file 'paysystemproperties.json'. The first time run of the system will create this folder and whenever a command is enacted, the updated version of the active configuration will get written to the activeconfiguration.json file (or altered file name).
 
 **Alternative Way to Use Commands**
 
