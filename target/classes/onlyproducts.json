@@ -1,0 +1,38 @@
+{
+
+  "products": {
+    "0": {
+      "id": 0,
+      "name": "Hot Chocolate",
+      "drinkPrice": 3
+    },
+    "1": {
+      "id": 1,
+      "name": "Strawberry Acai Refresher",
+      "drinkPrice": 5.75
+    },
+    "2": {
+      "id": 2,
+      "name": "Caramel Mocha Latte",
+      "drinkPrice": 4.25
+    },
+    "3": {
+      "id": 3,
+      "name": "Black Coffee",
+      "drinkPrice": 2.5
+    },
+    "4": {
+      "id": 4,
+      "name": "Iced Chai",
+      "drinkPrice": 3.5
+    },
+    "15": {
+      "id": 15,
+      "name": "Mocha Latte",
+      "drinkPrice": 3.75
+    }
+  },
+
+  "employees": { }
+
+}
